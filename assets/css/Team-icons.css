@@ -55,12 +55,3 @@
   border-radius: 50%;
 }
 
-.icon-orcid {
-  font-family: inherit !important;
-  font-weight: 600;
-}
-
-.icon-orcid:before {
-  content: "iD";
-}
-
