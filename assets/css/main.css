@@ -8,12 +8,16 @@
     align-items: center;
 }
 
-.ai_image {
+.home-image {
     height: 300px;
     vertical-align: middle;
     margin-bottom: 20px;
 }
 
-.home_title {
+.home-title {
   font-size: 32px;
+}
+
+.webiste-icon {
+    width: 25px;
 }
