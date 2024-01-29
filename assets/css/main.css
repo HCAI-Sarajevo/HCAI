@@ -2,3 +2,18 @@
   margin-bottom: 15px;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ai_image {
+    height: 300px;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+
+.home_title {
+  font-size: 32px;
+}
