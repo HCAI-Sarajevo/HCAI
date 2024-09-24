@@ -41,3 +41,8 @@
 .auto-width {
     width: auto;
 }
+
+.center-vertical {
+    display: flex;
+    align-items: center;
+}
