@@ -16,9 +16,21 @@
     flex-wrap: wrap;
 }
 
+.image-container img {
+    width: 20%;
+    height: auto;
+}
+
 /* class to scale image to scale image to x%*/
 .scale-image {
     width: 10%;
     max-width: 100%;
     height: auto;
+}
+
+@media all and (max-width: 992px) {
+    .image-container img {
+        width: 100%;
+        max-width: 100%;
+    }
 }
