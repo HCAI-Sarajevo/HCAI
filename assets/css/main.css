@@ -1,5 +1,6 @@
+/* Global Styles */
 .row {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .flex-center {
@@ -8,22 +9,19 @@
     align-items: center;
 }
 
-.home-image {
-    height: 300px;
-    vertical-align: middle;
-    margin-bottom: 20px;
+.auto-width {
+    width: auto;
 }
 
-.home-title {
-  font-size: 32px;
+.center-vertical {
+    display: flex;
+    align-items: center;
 }
 
-.webiste-icon {
-    width: 25px;
-}
-
+/* Navbar Styles - Responsive */
 .logo-style {
     width: 100px;
+    height: auto;
     margin-top: 5px;
 }
 
@@ -38,25 +36,36 @@
     height: 50px;
 }
 
-.auto-width {
-    width: auto;
+/* Typography - Responsive */
+.home-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.2;
 }
 
-.center-vertical {
-    display: flex;
-    align-items: center;
+/* Images - Responsive */
+.home-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-bottom: 20px;
 }
 
 .news-image {
-    max-width:100%;
+    max-width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1rem;
 }
 
-/* Existing blog.css styles */
+.webiste-icon {
+    width: 25px;
+    height: auto;
+}
 
+/* Blog Image Container */
 .image-container {
     display: flex;
     flex-wrap: wrap;
@@ -73,25 +82,419 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* For desktop screens, allow images to display side by side */
-@media (min-width: 768px) {
-    .image-container img {
-        max-width: calc(50% - 10px);
+/* Footer Responsive Styles */
+footer {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 1rem;
+}
+
+footer .container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Mobile Styles (up to 576px) */
+@media (max-width: 575.98px) {
+    /* Navbar adjustments */
+    .navbar .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
     
-    /* When only one image is present, let it use more space */
-    .image-container:has(img:only-child) img {
-        max-width: 80%;
+    .logo-style {
+        width: 70px;
+    }
+    
+    .unsa-logo-style {
+        width: 50px;
+        height: 50px;
+        padding-right: 5px;
+    }
+    
+    .etf-logo-style {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Hide university logos on very small screens */
+    .navbar .unsa-logo-style,
+    .navbar .etf-logo-style {
+        display: none;
+    }
+    
+    /* Typography */
+    .home-title {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h4 {
+        font-size: 1.1rem;
+    }
+    
+    /* Images */
+    .home-image {
+        max-height: 200px;
+    }
+    
+    .image-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .image-container img {
+        width: 100%;
+    }
+    
+    /* Cards */
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 0 0.5rem;
+    }
+    
+    footer .text-muted {
+        font-size: 0.85rem;
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
     }
 }
 
-/* For mobile screens, stack images vertically */
-@media (max-width: 767px) {
+/* Tablet Styles (576px to 767.98px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .logo-style {
+        width: 80px;
+    }
+    
+    .unsa-logo-style {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .etf-logo-style {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .home-title {
+        font-size: 1.75rem;
+    }
+    
+    .home-image {
+        max-height: 250px;
+    }
+    
     .image-container {
         flex-direction: column;
     }
     
     .image-container img {
         width: 100%;
+    }
+}
+
+/* Medium Screens (768px to 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .home-title {
+        font-size: 2rem;
+    }
+    
+    .image-container img {
+        max-width: calc(50% - 10px);
+    }
+    
+    .image-container:has(img:only-child) img {
+        max-width: 80%;
+    }
+}
+
+/* Large Screens (992px to 1199.98px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .home-title {
+        font-size: 2.25rem;
+    }
+    
+    .image-container img {
+        max-width: calc(50% - 10px);
+    }
+    
+    .image-container:has(img:only-child) img {
+        max-width: 70%;
+    }
+}
+
+/* Desktop Screens (1200px and up) */
+@media (min-width: 1200px) {
+    .home-title {
+        font-size: 2.5rem;
+    }
+    
+    .image-container img {
+        max-width: calc(50% - 10px);
+    }
+    
+    .image-container:has(img:only-child) img {
+        max-width: 60%;
+    }
+}
+
+/* Extra Large Screens (1400px and up) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* Ultra-Wide Screens (1920px and up) */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .home-title {
+        font-size: 2.75rem;
+    }
+}
+
+/* Project Cards Styling */
+.project-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.project-image-container {
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    min-height: 250px;
+}
+
+.project-image-container img {
+    max-height: 250px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Responsive adjustments for project cards */
+@media (max-width: 767.98px) {
+    .project-image-container {
+        min-height: 200px;
+        padding: 1rem;
+    }
+    
+    .project-image-container img {
+        max-height: 200px;
+    }
+    
+    .h-md-250 {
+        height: auto !important;
+    }
+}
+
+/* Home Page Specific Styles */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 100px 0 80px 0;
+    margin-top: 76px;
+}
+
+.hero-title {
+    color: white;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-section .btn-primary {
+    background-color: white;
+    color: #667eea;
+    border: none;
+}
+
+.hero-section .btn-primary:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero-section .btn-outline-secondary {
+    border-color: white;
+    color: white;
+}
+
+.hero-section .btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.hero-section .hero-image {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* About Section */
+.about-section {
+    background-color: #f8f9fa;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin-bottom: 2rem;
+}
+
+/* Research Areas */
+.research-areas-section {
+    background: white;
+}
+
+.research-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+}
+
+.research-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.research-card h4 {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* News Section */
+.news-section {
+    background-color: #f8f9fa;
+}
+
+.news-item-card {
+    background: white;
+    border-left: 4px solid #005f95;
+    transition: all 0.3s ease;
+}
+
+.news-item-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.date-badge {
+    background: #005f95;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.news-content {
+    flex: 1;
+}
+
+/* Legacy News Items Support */
+.newsBlk0 {
+    background: white;
+    border-left: 4px solid #005f95;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.newsBlk0:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-date {
+    color: #005f95;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-title {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments for home page */
+@media (max-width: 991.98px) {
+    .hero-section {
+        padding: 80px 0 60px 0;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .research-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-section {
+        padding: 60px 0 40px 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .hero-section .lead {
+        text-align: center;
+    }
+    
+    .date-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .news-item-card {
+        padding: 1rem !important;
+    }
+    
+    .newsBlk0 {
+        padding: 1rem;
     }
 }
