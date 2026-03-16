@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
-    <title>Publications - HCAI</title>
+    <title>Code - HCAI</title>
     <link href="assets/img/brands/logohcaisa.svg" rel="icon" sizes="343x194" type="image/svg+xml">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link
@@ -19,12 +19,8 @@
     <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav" style="width: 100%;">
         <div class="container">
             <button class="navbar-toggler" data-bs-target="#navcol-1" data-bs-toggle="collapse">
-                <span class="visually-hidden">
-                    Toggle navigation
-                </span>
-                <span class="navbar-toggler-icon">
-
-                </span>
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <a href="index.html">
                 <img class="img-fluid mb-0 pb-0 pt-0 logo-style" height="85" src="assets/img/brands/logohcaisa.svg">
@@ -48,15 +44,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="team.html" style="border-color: var(--bs-navbar-brand-color);">
-                            Team
-                        </a>
+                        <a class="nav-link" href="team.html"
+                            style="border-color: var(--bs-navbar-brand-color);">Team</a>
                     </li>
                     <li class="nav-item">
-                        <!-- <a class="nav-link" href="publications.html"
-                            style="border-color: var(--bs-navbar-brand-color);">
-                            Publications
-                        </a> -->
                         <a class="nav-link" style="border-color: var(--bs-navbar-brand-color);"
                             href="https://scholar.google.de/citations?hl=hr&user=ujfcE-sAAAAJ&view_op=list_works&sortby=pubdate"
                             target="_blank">
@@ -74,7 +65,9 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="materialsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-color: var(--bs-navbar-brand-color);">
+                        <a class="nav-link dropdown-toggle active" href="#" id="materialsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            style="color: var(--bs-navbar-active-color);">
                             Materials
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="materialsDropdown">
@@ -98,16 +91,30 @@
         <div class="container py-4 py-xl-5">
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Publications</h2>
+                    <h2>Code</h2>
+                    <p class="w-lg-50">Open source code and software from HCAI research projects</p>
                 </div>
             </div>
-            <div class="newsBlk0 col-md-12 portfolio-item cat-news">
-                <p class="post-title">
-                    <a href="https://scholar.google.de/citations?hl=hr&user=ujfcE-sAAAAJ&view_op=list_works&sortby=pubdate"
-                        target="_blank">
-                        https://scholar.google.de/citations?hl=hr&user=ujfcE-sAAAAJ&view_op=list_works&sortby=pubdate
-                    </a>
-                </p>
+            <div class="row gy-4 row-cols-1 row-cols-md-2">
+                <!-- Code 1 -->
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title">exproj</h4>
+                            <p class="card-text flex-grow-1">
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <small class="text-muted">GitHub</small>
+                                <small class="text-muted">2025</small>
+                            </div>
+                            <a href="https://amevic.github.io/exproj/"
+                               target="_blank"
+                               class="btn btn-primary mt-3">
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
