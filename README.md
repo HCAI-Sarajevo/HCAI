@@ -44,9 +44,10 @@ Protecting AI systems from adversarial attacks and ensuring robust performance. 
 ## 👥 Our Team
 
 Our laboratory is led by **Dr. Senka Krivić**, who serves as:
+- Associate Professor at Universiy of Sarajevo
 - Visiting Lecturer at King's College London, Department of Informatics
 - Member of ELLIS (European Laboratory for Learning and Intelligent Systems)
-- First person with Bosnia and Herzegovina affiliation to receive ELLIS recognition
+
 
 Our team includes talented PhD students, researchers, and collaborators working on groundbreaking projects in human-centered AI.
 
