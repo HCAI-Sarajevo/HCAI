@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
-    <title>Surveys - HCAI</title>
+    <title>Announcements - HCAI</title>
     <link href="assets/img/brands/logohcaisa.svg" rel="icon" sizes="343x194" type="image/svg+xml">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link
@@ -29,7 +29,7 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html"
-                            style="border-color: var(--bs-navbar-brand-color);">
+                            style="color: rgb(0, 0, 0);border-color: var(--bs-navbar-brand-color);">
                             Home
                         </a>
                     </li>
@@ -44,9 +44,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="team.html" style="border-color: var(--bs-navbar-brand-color);">
-                            Team
-                        </a>
+                        <a class="nav-link" href="team.html"
+                            style="border-color: var(--bs-navbar-brand-color);">Team</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" style="border-color: var(--bs-navbar-brand-color);"
@@ -61,7 +60,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="announcements.html" style="border-color: var(--bs-navbar-brand-color);">
+                        <a class="nav-link active" href="announcements.html" style="color: var(--bs-navbar-active-color);">
                             Announcements
                         </a>
                     </li>
@@ -71,9 +70,9 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="materialsDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="materialsDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false"
-                            style="color: var(--bs-navbar-active-color);">
+                            style="border-color: var(--bs-navbar-brand-color);">
                             Materials
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="materialsDropdown">
@@ -81,7 +80,7 @@
                             <li><a class="dropdown-item" href="presentations.html">Presentations</a></li>
                             <li><a class="dropdown-item" href="datasets.html">Datasets</a></li>
                             <li><a class="dropdown-item" href="code.html">Code</a></li>
-                            <li><a class="dropdown-item active" href="surveys.html">Surveys</a></li>
+                            <li><a class="dropdown-item" href="surveys.html">Surveys</a></li>
                             <li><a class="dropdown-item" href="for-students.html">For Students</a></li>
                         </ul>
                     </li>
@@ -95,45 +94,29 @@
             </div>
         </div>
     </nav>
-
     <section class="py-5 mt-5">
         <div class="container py-4 py-xl-5">
             <div class="row mb-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Surveys</h2>
+                    <h2>Announcements</h2>
                 </div>
             </div>
 
-            <div class="row gy-4 row-cols-1 row-cols-md-2">
-                <!-- Survey 1 -->
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="card-body d-flex flex-column">
-                            <h4 class="card-title">A Systematic Review of Explainable Convolutional Neural Networks for Image Classification</h4>
-                            <p class="card-text mb-1">Vahidin Hasić, Senka Krivić</p>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <small class="text-muted">Expert Systems</small>
-                                <small class="text-muted">2025</small>
-                            </div>
-                            <div class="d-flex flex-wrap gap-2 mt-3">
-                                <a href="https://onlinelibrary.wiley.com/doi/10.1111/exsy.70279"
-                                   target="_blank"
-                                   class="btn btn-primary">
-                                    Paper
-                                </a>
-                                <a href="https://vhasic.github.io/Interactive-XAI/"
-                                   target="_blank"
-                                   class="btn btn-outline-primary">
-                                    Interactive Website
-                                </a>
-                            </div>
-                        </div>
+            <div class="news-item-card mb-3 p-4 bg-white rounded shadow-sm" lang="bs">
+                <div class="d-flex align-items-start">
+                    <div class="news-date me-3">
+                        <div class="date-badge">Sep 29, 2026</div>
+                    </div>
+                    <div class="news-content">
+                        <h5 class="fw-bold mb-3">📢 Poziv za studenta demonstratora na predmetu Introduction to Autonomous Systems</h5>
+                        <p>Pozivamo zainteresovane studente master studija Odsjeka za automatiku i elektroniku da se prijave za angažman demonstratora na predmetu Introduction to Autonomous Systems.</p>
+                        <p>Od kandidata se očekuje dobro poznavanje engleskog jezika, interes za robotiku i autonomne sisteme te spremnost za rad sa studentima na vježbama.</p>
+                        <p class="mb-0">Za prijavu je potrebno poslati kratku biografiju i nekoliko rečenica o motivaciji za angažman putem e-maila prof. dr. Senki Krivić i doc. dr. Dženanu Lapandiću.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <footer>
         <div class="container py-4 py-lg-5">
             <hr>
