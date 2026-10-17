@@ -1,280 +1,1020 @@
 <!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
-
+<html lang="en" data-bs-theme="light">
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
-    <title>Materials - HCAI</title>
-    <link href="assets/img/brands/logohcaisa.svg" rel="icon" sizes="343x194" type="image/svg+xml">
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap"
-        rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/Team-icons.css" rel="stylesheet">
-    <link href="assets/css/Team-images.css" rel="stylesheet">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Presentations - HCAI Sarajevo</title>
+
+    <link rel="icon"
+          type="image/svg+xml"
+          href="assets/img/brands/logohcaisa.svg">
+
+    <link rel="stylesheet"
+          href="assets/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800&display=swap">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        :root {
+            --presentations-blue: #005f95;
+            --presentations-navy: #172742;
+            --presentations-muted: #64748b;
+            --presentations-border: #e2e8f0;
+        }
+
+        body {
+            background: #f7f9fc;
+        }
+
+        .presentations-page {
+            padding-top: 170px;
+            padding-bottom: 64px;
+        }
+
+        .page-introduction {
+            max-width: 760px;
+            margin: 0 auto 36px;
+            text-align: center;
+        }
+
+            .page-introduction h1 {
+                color: var(--presentations-navy);
+                font-weight: 800;
+            }
+
+            .page-introduction p {
+                color: var(--presentations-muted);
+                line-height: 1.7;
+            }
+
+        .presentation-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .presentation-search {
+            width: 100%;
+            max-width: 420px;
+        }
+
+            .presentation-search input {
+                border: 1px solid var(--presentations-border);
+                border-radius: 10px;
+                padding: 12px 16px;
+            }
+
+        .year-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .year-button {
+            border: 1px solid var(--presentations-border);
+            border-radius: 8px;
+            background: white;
+            color: var(--presentations-navy);
+            padding: 9px 17px;
+            font-weight: 600;
+        }
+
+            .year-button:hover,
+            .year-button[aria-pressed="true"] {
+                background: var(--presentations-blue);
+                border-color: var(--presentations-blue);
+                color: white;
+            }
+
+        .presentation-year {
+            margin-bottom: 40px;
+        }
+
+        .year-heading {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--presentations-navy);
+            font-size: 1.65rem;
+            font-weight: 700;
+        }
+
+            .year-heading::after {
+                content: "";
+                height: 1px;
+                flex: 1;
+                background: var(--presentations-border);
+            }
+
+        .presentation-card {
+            height: 100%;
+            overflow: hidden;
+            background: white;
+            border: 1px solid var(--presentations-border);
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(23, 39, 66, 0.04);
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+            .presentation-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 28px rgba(23, 39, 66, 0.09);
+            }
+
+        .slide-preview {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #edf2f7;
+            border-bottom: 1px solid var(--presentations-border);
+        }
+
+            .slide-preview object {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                pointer-events: none;
+            }
+
+        .preview-link {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+            .preview-link:focus-visible {
+                outline: 4px solid var(--presentations-blue);
+                outline-offset: -4px;
+            }
+
+        .preview-fallback {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 24px;
+            text-align: center;
+            color: var(--presentations-navy);
+        }
+
+        .pdf-symbol {
+            padding: 10px 14px;
+            border: 1px solid #b8c9d9;
+            border-radius: 8px;
+            color: var(--presentations-blue);
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .presentation-body {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 24px;
+        }
+
+        .presentation-category {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 5px 10px;
+            border-radius: 6px;
+            background: #edf5fa;
+            color: #00527f;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .presentation-title {
+            margin-bottom: 10px;
+            color: var(--presentations-navy);
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.45;
+        }
+
+        .presentation-author {
+            margin-bottom: 16px;
+            color: var(--presentations-blue);
+            font-weight: 600;
+        }
+
+        .presentation-details {
+            width: 100%;
+            margin: 0 0 20px;
+            color: #526174;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+            .presentation-details div {
+                margin-bottom: 6px;
+            }
+
+            .presentation-details dt,
+            .presentation-details dd {
+                display: inline;
+            }
+
+            .presentation-details dt {
+                color: #334155;
+                font-weight: 600;
+            }
+
+            .presentation-details dd {
+                margin: 0;
+            }
+
+        .slides-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            border: 1px solid var(--presentations-blue);
+            border-radius: 8px;
+            color: var(--presentations-blue);
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 180ms ease, color 180ms ease;
+        }
+
+            .slides-button:hover {
+                background: var(--presentations-blue);
+                color: white;
+            }
+
+            .slides-button:focus-visible,
+            .year-button:focus-visible {
+                outline: 3px solid #e5af26;
+                outline-offset: 3px;
+            }
+
+        .pdf-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .empty-state {
+            padding: 40px;
+            text-align: center;
+            color: var(--presentations-muted);
+        }
+
+        .preview-note {
+            color: var(--presentations-muted);
+            font-size: 0.85rem;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 767px) {
+            .presentations-page {
+                padding-top: 140px;
+            }
+
+            .presentation-toolbar {
+                align-items: stretch;
+            }
+
+            .presentation-search {
+                max-width: none;
+            }
+
+            .presentation-body {
+                padding: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .presentation-card,
+            .slides-button {
+                transition: none;
+            }
+
+                .presentation-card:hover {
+                    transform: none;
+                }
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light" id="mainNav" style="width: 100%;">
+    <nav class="navbar navbar-expand-md fixed-top navbar-shrink py-3 navbar-light bg-white"
+         id="mainNav">
         <div class="container">
-            <button class="navbar-toggler" data-bs-target="#navcol-1" data-bs-toggle="collapse">
-                <span class="visually-hidden">
-                    Toggle navigation
-                </span>
-                <span class="navbar-toggler-icon">
-
-                </span>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navcol-1"
+                    aria-controls="navcol-1"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <a href="index.html">
-                <img class="img-fluid mb-0 pb-0 pt-0 logo-style" height="85" src="assets/img/brands/logohcaisa.svg">
+
+            <a href="index.html" aria-label="HCAI Sarajevo home">
+                <img class="img-fluid mb-0 pb-0 pt-0 logo-style"
+                     height="85"
+                     src="assets/img/brands/logohcaisa.svg"
+                     alt="HCAI Sarajevo">
             </a>
-            <div class="collapse navbar-collapse ps-lg-0" id="navcol-1">
+
+            <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html"
-                            style="border-color: var(--bs-navbar-brand-color);">
-                            Home
-                        </a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="projects.html" style="border-color: var(--bs-navbar-brand-color);">
-                            Projects
-                        </a>
+                        <a class="nav-link" href="projects.html">Projects</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="partners.html" style="border-color: var(--bs-navbar-brand-color);">
-                            Partners
-                        </a>
+                        <a class="nav-link" href="partners.html">Partners</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="team.html" style="border-color: var(--bs-navbar-brand-color);">
-                            Team
-                        </a>
+                        <a class="nav-link" href="team.html">Team</a>
                     </li>
+
                     <li class="nav-item">
-                        <!-- <a class="nav-link" href="publications.html"
-                            style="border-color: var(--bs-navbar-brand-color);">
-                            Publications
-                        </a> -->
-                        <a class="nav-link" style="border-color: var(--bs-navbar-brand-color);"
-                            href="https://scholar.google.de/citations?hl=hr&user=ujfcE-sAAAAJ&view_op=list_works&sortby=pubdate"
-                            target="_blank">
+                        <a class="nav-link"
+                           href="https://scholar.google.de/citations?hl=hr&user=ujfcE-sAAAAJ&view_op=list_works&sortby=pubdate"
+                           target="_blank"
+                           rel="noopener noreferrer">
                             Publications
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html" style="border-color: var(--bs-navbar-brand-color);">
-                            Blog
-                        </a>
+                        <a class="nav-link" href="blog.html">Blog</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="announcements.html" style="border-color: var(--bs-navbar-brand-color);">
+                        <a class="nav-link" href="announcements.html">
                             Announcements
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="media.html" style="border-color: var(--bs-navbar-brand-color);">
-                            Media
-                        </a>
+                        <a class="nav-link" href="media.html">Media</a>
                     </li>
+
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="materialsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border-color: var(--bs-navbar-brand-color);">
+                        <a class="nav-link dropdown-toggle active"
+                           href="#"
+                           id="materialsDropdown"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Materials
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="materialsDropdown">
-                            <li><a class="dropdown-item" href="posters.html">Posters</a></li>
-                            <li><a class="dropdown-item" href="presentations.html">Presentations</a></li>
-                            <li><a class="dropdown-item" href="datasets.html">Datasets</a></li>
-                            <li><a class="dropdown-item" href="code.html">Code</a></li>
-                            <li><a class="dropdown-item" href="surveys.html">Surveys</a></li>
-                            <li><a class="dropdown-item" href="for-students.html">For Students</a></li>
+
+                        <ul class="dropdown-menu"
+                            aria-labelledby="materialsDropdown">
+                            <li>
+                                <a class="dropdown-item" href="posters.html">
+                                    Posters
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item active"
+                                   href="presentations.html"
+                                   aria-current="page">
+                                    Presentations
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="datasets.html">
+                                    Datasets
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="code.html">
+                                    Code
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="surveys.html">
+                                    Surveys
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="for-students.html">
+                                    For Students
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-                <a href="https://www.unsa.ba/en" target="_blank">
-                    <img class="unsa-logo-style" height="75" src="assets/img/brands/unsa_logo.svg">
+
+                <a href="https://www.unsa.ba/en"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <img class="unsa-logo-style"
+                         height="75"
+                         src="assets/img/brands/unsa_logo.svg"
+                         alt="University of Sarajevo">
                 </a>
-                <a href="https://www.etf.unsa.ba/" target="_blank">
-                    <img class="etf-logo-style" height="20" src="assets/img/brands/etf_logo.svg">
+
+                <a href="https://www.etf.unsa.ba/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <img class="etf-logo-style"
+                         height="20"
+                         src="assets/img/brands/etf_logo.svg"
+                         alt="Faculty of Electrical Engineering">
                 </a>
             </div>
         </div>
     </nav>
-        <section class="py-5 mt-5">
-        <div class="container py-4 py-xl-5">
-            <div class="row mb-5">
-                <div class="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Presentations</h2>
+
+    <main class="presentations-page">
+        <div class="container">
+            <header class="page-introduction">
+                <h1>Presentations</h1>
+                <p>
+                    Explore talks, research presentations and educational
+                    materials from HCAI Sarajevo.
+                </p>
+            </header>
+
+            <div class="presentation-toolbar">
+                <div class="year-filters"
+                     role="group"
+                     aria-label="Filter presentations by year">
+                    <button class="year-button"
+                            type="button"
+                            data-year="all"
+                            aria-pressed="true">
+                        All years
+                    </button>
+
+                    <button class="year-button"
+                            type="button"
+                            data-year="2026"
+                            aria-pressed="false">
+                        2026
+                    </button>
+
+                    <button class="year-button"
+                            type="button"
+                            data-year="2025"
+                            aria-pressed="false">
+                        2025
+                    </button>
+
+                    <button class="year-button"
+                            type="button"
+                            data-year="2024"
+                            aria-pressed="false">
+                        2024
+                    </button>
+                </div>
+
+                <div class="presentation-search">
+                    <label for="presentation-search" class="visually-hidden">
+                        Search by title, speaker or event
+                    </label>
+
+                    <input id="presentation-search"
+                           class="form-control"
+                           type="search"
+                           placeholder="Search by title, speaker or event…">
                 </div>
             </div>
 
-            <!-- Year 2026 -->
-            <div class="row mb-4">
-                <h3 class="text-center mb-3">2026</h3>
+            <div id="presentations-list"></div>
 
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/Prolog 2026 - Autonomni roboti kao dio društva.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">Autonomni roboti kao dio društva</h5>
-                            <p class="card-text">Senka Krivić PhD</p>
-                        </div>
-                    </div>
-                </div>
+            <p id="empty-state"
+               class="empty-state"
+               role="status"
+               hidden>
+                No presentations match your search.
+            </p>
 
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/HCAI presentation.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">HCAI presentation</h5>
-                            <p class="card-text">Vahidin Hasić</p>
-                        </div>
-                    </div>
-                </div>
+            <p id="result-count"
+               class="visually-hidden"
+               role="status"
+               aria-live="polite"></p>
 
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/Vahidin Hasic KCL introduction 15.01.2026_v2.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">Towards Explainable Computer Vision</h5>
-                            <p class="card-text">Vahidin Hasic</p>
-                        </div>
-                    </div>
-                </div>            
-            </div>
-            
-            <!-- Year 2025 -->
-            <div class="row mb-4">
-                <h3 class="text-center mb-3">2025</h3>
+            <noscript>
+                <p>
+                    Enable JavaScript to display the presentation catalogue.
+                    You can also access the
+                    <a href="assets/pdfs/">PDF folder</a>
+                    if directory browsing is available.
+                </p>
+            </noscript>
 
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/Grüner_Halilovic_final.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">Explainable Robot Navigation: Environment-Centered and Human-Centered Approach</h5>
-                            <p class="card-text">Amar Halilović</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/Senka_EEML25.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">Explainable robotics</h5>
-                            <p class="card-text">Senka Krivić</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/Nauka uz kafu 2025.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">AI and Robotics Shaping the Future of Manufacturing</h5>
-                            <p class="card-text">Senka Krivić</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/icra2025_slides.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">Affordance-Based Explanations of Robot Navigation</h5>
-                            <p class="card-text">Amar Halilović</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/icra2025_dc_slides.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">Explainable Robot Navigation</h5>
-                            <p class="card-text">Amar Halilović</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/JSI visit 2025 Senka Krivic.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">From Explanations to Trust</h5>
-                            <p class="card-text">Senka Krivić PhD</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/FFS25 - PP template Senka Krivić.pptx.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">ROBOT KAO KOLEGA: OD STRAHA DO SAVEZNIKA</h5>
-                            <p class="card-text">Senka Krivić PhD</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/umap2025_presentation.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">Sentence Encoder-Based Clustering Method for Modeling Students’ Learning Programming Behavior</h5>
-                            <p class="card-text">Mubina Kamberovic</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/ICAT2025_keynote_Vahidin.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">ICAT 2025 Keynote</h5>
-                            <p class="card-text">Vahidin Hasic</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/Infineon AI days 2025.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">Infineon AI Days 2025</h5>
-                            <p class="card-text">Vahidin Hasic</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/EEML 2025 report.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">EEML 2025 Report</h5>
-                            <p class="card-text">ANNT</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-            <!-- Year 2024 -->
-            <div class="row mb-4">
-                <h3 class="text-center mb-3">2024</h3>
-                
-                <div class="col-md-6 mb-3">
-                    <div class="card h-100" style="cursor: pointer;" onclick="window.open('assets/pdfs/PutkaRobotici.pdf', '_blank')">
-                        <div class="card-body">
-                            <h5 class="card-title">Moj put ka robotici</h5>
-                            <p class="card-text">Senka Krivić PhD</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Add more presentations for 2024 here in similar col-md-6 divs -->
-            </div>
-            
-            <!-- Add more year sections as needed -->
+            <p class="preview-note mt-4">
+                Select a preview or “View slides” to open the PDF in a new tab.
+            </p>
         </div>
-    </section>
-    
-    <footer>
+    </main>
+
+    <footer class="bg-white">
         <div class="container py-4 py-lg-5">
             <hr>
-            <div class="text-muted d-flex justify-content-between align-items-center pt-3">
+            <div class="text-muted pt-3">
                 <p class="mb-0">Copyright © 2026 HCAI</p>
             </div>
         </div>
     </footer>
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/startup-modern.js"></script>
-</body>
 
+    <script>
+        /*
+         * Add new presentations to this list.
+         *
+         * date, location and event:
+         * Leave empty when the information has not been confirmed.
+         *
+         * thumbnail:
+         * Optional image of a slide, for example:
+         * "assets/img/presentations/explainable-robotics.jpg"
+         *
+         * Without a thumbnail, the browser attempts a PDF preview.
+         */
+
+        const presentations = [
+            {
+                year: 2026,
+                title: "Autonomni roboti kao dio društva",
+                author: "Senka Krivić",
+                category: "Presentation",
+                date: "September 2026",
+                location: "",
+                event: "",
+                file: "assets/pdfs/Prolog 2026 - Autonomni roboti kao dio društva.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2026,
+                title: "HCAI presentation",
+                author: "Vahidin Hasić",
+                category: "Lab presentation",
+                date: "",
+                location: "",
+                event: "",
+                file: "assets/pdfs/HCAI presentation.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2026,
+                title: "Towards Explainable Computer Vision",
+                author: "Vahidin Hasić",
+                category: "Research presentation",
+                date: "",
+                location: "",
+                event: "",
+                file: "assets/pdfs/Vahidin Hasic KCL introduction 15.01.2026_v2.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "Explainable Robot Navigation: Environment-Centered and Human-Centered Approach",
+                author: "Amar Halilović",
+                category: "Research presentation",
+                date: "",
+                location: "",
+                event: "",
+                file: "assets/pdfs/Gru\u0308ner_Halilovic_final.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "Explainable robotics",
+                author: "Senka Krivić",
+                category: "Invited talk",
+                date: "July 2025",
+                location: "Sarajevo, Bosnia and Herzegovina",
+                event: "Eastern European Machine Learning Summer School (EEML 2025)",
+                file: "assets/pdfs/Senka_EEML25.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "AI and Robotics Shaping the Future of Manufacturing",
+                author: "Senka Krivić",
+                category: "Presentation",
+                date: "",
+                location: "",
+                event: "",
+                file: "assets/pdfs/Nauka uz kafu 2025.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "Affordance-Based Explanations of Robot Navigation",
+                author: "Amar Halilović",
+                category: "Conference presentation",
+                date: "",
+                location: "",
+                event: "ICRA 2025",
+                file: "assets/pdfs/icra2025_slides.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "Explainable Robot Navigation",
+                author: "Amar Halilović",
+                category: "Research presentation",
+                date: "",
+                location: "",
+                event: "",
+                file: "assets/pdfs/icra2025_dc_slides.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "From Explanations to Trust",
+                author: "Senka Krivić",
+                category: "Research presentation",
+                date: "",
+                location: "",
+                event: "",
+                file: "assets/pdfs/JSI visit 2025 Senka Krivic.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "Robot kao kolega: od straha do saveznika",
+                author: "Senka Krivić",
+                category: "Presentation",
+                date: "",
+                location: "",
+                event: "",
+                file: "assets/pdfs/FFS25 - PP template Senka Krivić.pptx.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "Sentence Encoder-Based Clustering Method for Modeling Students’ Learning Programming Behavior",
+                author: "Mubina Kamberović",
+                category: "Conference presentation",
+                date: "",
+                location: "",
+                event: "UMAP 2025",
+                file: "assets/pdfs/umap2025_presentation.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "ICAT 2025 Keynote",
+                author: "Vahidin Hasić",
+                category: "Keynote",
+                date: "",
+                location: "",
+                event: "ICAT 2025",
+                file: "assets/pdfs/ICAT2025_keynote_Vahidin.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "Infineon AI Days 2025",
+                author: "Vahidin Hasić",
+                category: "Presentation",
+                date: "",
+                location: "",
+                event: "Infineon AI Days 2025",
+                file: "assets/pdfs/Infineon AI days 2025.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2025,
+                title: "EEML 2025 Report",
+                author: "ANNT",
+                category: "Report",
+                date: "",
+                location: "",
+                event: "EEML 2025",
+                file: "assets/pdfs/EEML 2025 report.pdf",
+                thumbnail: ""
+            },
+            {
+                year: 2024,
+                title: "Moj put ka robotici",
+                author: "Senka Krivić",
+                category: "Talk",
+                date: "11 June 2024",
+                location: "Sarajevo, Bosnia and Herzegovina",
+                event: "Škola budućnosti – Imagination Day u BiH",
+                file: "assets/pdfs/PutkaRobotici.pdf",
+                thumbnail: ""
+            }
+        ];
+
+        const list = document.getElementById("presentations-list");
+        const searchInput = document.getElementById("presentation-search");
+        const emptyState = document.getElementById("empty-state");
+        const resultCount = document.getElementById("result-count");
+        const filterButtons = document.querySelectorAll(".year-button");
+
+        let selectedYear = "all";
+        const cardRecords = [];
+        const yearRecords = [];
+
+        function makeElement(tag, className, text) {
+            const element = document.createElement(tag);
+
+            if (className) {
+                element.className = className;
+            }
+
+            if (text !== undefined) {
+                element.textContent = text;
+            }
+
+            return element;
+        }
+
+        function normalise(text) {
+            return text
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .toLowerCase();
+        }
+
+        function addDetail(details, label, value) {
+            if (!value) {
+                return;
+            }
+
+            const row = document.createElement("div");
+            const term = makeElement("dt", "", label + ": ");
+            const description = makeElement("dd", "", value);
+
+            row.append(term, description);
+            details.append(row);
+        }
+
+        function createCard(item) {
+            const column = makeElement("div", "col");
+
+            const card = makeElement(
+                "article",
+                "presentation-card"
+            );
+
+            const preview = makeElement("div", "slide-preview");
+
+            const pdfUrl = encodeURI(item.file);
+
+            if (item.thumbnail) {
+                const image = document.createElement("img");
+
+                image.src = item.thumbnail;
+                image.alt = "Slide preview: " + item.title;
+                image.loading = "lazy";
+                image.style.width = "100%";
+                image.style.height = "100%";
+                image.style.objectFit = "contain";
+
+                preview.append(image);
+            } else {
+                const object = document.createElement("object");
+
+                object.type = "application/pdf";
+                object.setAttribute("aria-hidden", "true");
+                object.setAttribute("tabindex", "-1");
+
+                /*
+                 * PDFs are loaded only when their cards approach
+                 * the visible part of the page.
+                 */
+                object.dataset.pdfSource =
+                    pdfUrl + "#page=1&view=Fit&toolbar=0&navpanes=0";
+
+                const fallback = makeElement(
+                    "div",
+                    "preview-fallback"
+                );
+
+                fallback.append(
+                    makeElement("span", "pdf-symbol", "PDF"),
+                    makeElement("span", "", "Open presentation")
+                );
+
+                object.append(fallback);
+                preview.append(object);
+            }
+
+            const previewLink = document.createElement("a");
+
+            previewLink.className = "preview-link";
+            previewLink.href = pdfUrl;
+            previewLink.target = "_blank";
+            previewLink.rel = "noopener noreferrer";
+            previewLink.setAttribute(
+                "aria-label",
+                "Open " + item.title + " (PDF, new tab)"
+            );
+
+            preview.append(previewLink);
+
+            const body = makeElement("div", "presentation-body");
+
+            body.append(
+                makeElement(
+                    "span",
+                    "presentation-category",
+                    item.category
+                ),
+                makeElement(
+                    "h3",
+                    "presentation-title",
+                    item.title
+                ),
+                makeElement(
+                    "p",
+                    "presentation-author",
+                    item.author
+                )
+            );
+
+            const details = makeElement(
+                "dl",
+                "presentation-details"
+            );
+
+            addDetail(details, "Date", item.date);
+            addDetail(details, "Event", item.event);
+            addDetail(details, "Location", item.location);
+
+            if (details.children.length) {
+                body.append(details);
+            }
+
+            const button = makeElement(
+                "a",
+                "slides-button",
+                "View slides"
+            );
+
+            button.href = pdfUrl;
+            button.target = "_blank";
+            button.rel = "noopener noreferrer";
+            button.setAttribute(
+                "aria-label",
+                "View slides: " + item.title + " (PDF, new tab)"
+            );
+
+            button.append(
+                makeElement("span", "pdf-label", "PDF ↗")
+            );
+
+            body.append(button);
+            card.append(preview, body);
+            column.append(card);
+
+            cardRecords.push({
+                element: column,
+                year: String(item.year),
+                searchText: normalise([
+                    item.title,
+                    item.author,
+                    item.category,
+                    item.date,
+                    item.location,
+                    item.event,
+                    item.year
+                ].join(" "))
+            });
+
+            return column;
+        }
+
+        const years = [
+            ...new Set(presentations.map(item => item.year))
+        ].sort((a, b) => b - a);
+
+        years.forEach(year => {
+            const section = makeElement(
+                "section",
+                "presentation-year"
+            );
+
+            const heading = makeElement(
+                "h2",
+                "year-heading",
+                String(year)
+            );
+
+            heading.id = "presentations-" + year;
+            section.setAttribute("aria-labelledby", heading.id);
+
+            const row = makeElement(
+                "div",
+                "row row-cols-1 row-cols-lg-2 g-4"
+            );
+
+            presentations
+                .filter(item => item.year === year)
+                .forEach(item => row.append(createCard(item)));
+
+            section.append(heading, row);
+            list.append(section);
+
+            yearRecords.push({
+                element: section,
+                row: row
+            });
+        });
+
+        function applyFilters() {
+            const query = normalise(searchInput.value.trim());
+            let visibleCount = 0;
+
+            cardRecords.forEach(record => {
+                const matchesYear =
+                    selectedYear === "all" ||
+                    record.year === selectedYear;
+
+                const matchesSearch =
+                    record.searchText.includes(query);
+
+                const visible = matchesYear && matchesSearch;
+
+                record.element.hidden = !visible;
+
+                if (visible) {
+                    visibleCount++;
+                }
+            });
+
+            yearRecords.forEach(record => {
+                record.element.hidden =
+                    !Array.from(record.row.children).some(
+                        column => !column.hidden
+                    );
+            });
+
+            emptyState.hidden = visibleCount > 0;
+            resultCount.textContent =
+                visibleCount + " presentations found.";
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                selectedYear = button.dataset.year;
+
+                filterButtons.forEach(otherButton => {
+                    otherButton.setAttribute(
+                        "aria-pressed",
+                        String(otherButton === button)
+                    );
+                });
+
+                applyFilters();
+            });
+        });
+
+        searchInput.addEventListener("input", applyFilters);
+
+        const pdfObjects = document.querySelectorAll(
+            "object[data-pdf-source]"
+        );
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    const object = entry.target;
+                    object.data = object.dataset.pdfSource;
+                    observer.unobserve(object);
+                });
+            }, {
+                rootMargin: "150px"
+            });
+
+            pdfObjects.forEach(object => observer.observe(object));
+        } else {
+            pdfObjects.forEach(object => {
+                object.data = object.dataset.pdfSource;
+            });
+        }
+
+        applyFilters();
+    </script>
+</body>
 </html>
